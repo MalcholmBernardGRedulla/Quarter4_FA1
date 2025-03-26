@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sign Up to Support SDGs</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Join the Movement for a Sustainable Future</h1>
+        <p>The Sustainable Development Goals (SDGs) aim to create a better world by 2030. Here’s why you should support them:</p>
+        <ul>
+            <li>They promote quality education and reduce inequalities.</li>
+            <li>They ensure access to clean water, healthcare, and sustainable resources.</li>
+            <li>They work towards climate action and environmental sustainability.</li>
+        </ul>
+
+        <form id="sdgForm">
+            <label for="firstName">First Name:</label>
+            <input type="text" id="firstName" name="firstName" required>
+
+            <label for="lastName">Last Name:</label>
+            <input type="text" id="lastName" name="lastName" required>
+
+            <label>Gender:</label>
+            <div class="radio-group">
+                <input type="radio" id="male" name="gender" value="male" required>
+                <label for="male">Male</label>
+
+                <input type="radio" id="female" name="gender" value="female">
+                <label for="female">Female</label>
+
+                <input type="radio" id="preferNot" name="gender" value="preferNot">
+                <label for="preferNot">Prefer not to say</label>
+            </div>
+
+            <label for="email">Email Address:</label>
+            <input type="email" id="email" name="email" required>
+
+            <label for="contact">Contact Number (optional):</label>
+            <input type="text" id="contact" name="contact">
+
+            <label for="sdgInterest">Which SDG are you most passionate about?</label>
+            <select id="sdgInterest" name="sdgInterest" required>
+                <option value="">Select one</option>
+                <option value="No Poverty">No Poverty</option>
+                <option value="Zero Hunger">Zero Hunger</option>
+                <option value="Good Health and Well-being">Good Health and Well-being</option>
+                <option value="Quality Education">Quality Education</option>
+                <option value="Climate Action">Climate Action</option>
+                <option value="Other">Other</option>
+            </select>
+
+            <div class="buttons">
+                <button type="submit">Sign Up</button>
+                <button type="reset">Reset</button>
+            </div>
+        </form>
+    </div>
+
+    <script>
+        document.getElementById("sdgForm").addEventListener("submit", function(event) {
+            let inputs = document.querySelectorAll("input[required], select[required]");
+            for (let input of inputs) {
+                if (!input.value.trim()) {
+                    alert("Please fill out all required fields.");
+                    event.preventDefault();
+                    return;
+                }
+            }
+            alert("Thank you for supporting the SDGs! Your form has been submitted.");
+        });
+    </script>
+</body>
+</html>
